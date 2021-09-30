@@ -67,30 +67,30 @@ function BottomTabNavigator() {
         component={HomeScreen}
         options={({ navigation }: RootTabScreenProps<'Home'>) => ({
           title: 'Home',
-          headerShown: false,
+          headerStyle:{ backgroundColor:'transparent'  ,opacity:1.9},
           tabBarStyle: { backgroundColor: 'black', height: 90, borderTopWidth:0 },
           tabBarIcon: ({ color }) => <AntDesign name="home" color={color} size={24} />,
-          headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate('Modal')}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}>
-              <FontAwesome
-                name="info-circle"
-                size={25}
-                color={Colors[colorScheme].text}
-                style={{ marginRight: 15 }}
-              />
-            </Pressable>
-          ),
+          // headerRight: () => (
+          //   <Pressable
+          //     onPress={() => navigation.navigate('Modal')}
+          //     style={({ pressed }) => ({
+          //       opacity: pressed ? 0.5 : 1,
+          //     })}>
+          //     <FontAwesome
+          //       name="info-circle"
+          //       size={25}
+          //       color={Colors[colorScheme].text}
+          //       style={{ marginRight: 15 }}
+          //     />
+          //   </Pressable>
+          // ),
         })}
       />
       <BottomTab.Screen
         name="ComingSoon"
         component={ComingSoonScreen}
         options={{
-          tabBarStyle: { backgroundColor: 'black', height: 90, marginTop: 0 },
+          tabBarStyle: { backgroundColor: 'black', height: 90, borderTopWidth:0  },
           title: 'Coming Soon',
           tabBarIcon: ({ color }) => <MaterialIcons name="video-library" color={color} size={24} />,
         }}
@@ -99,7 +99,7 @@ function BottomTabNavigator() {
         name="Search"
         component={ComingSoonScreen}
         options={{
-          tabBarStyle: { backgroundColor: 'black', height: 90, marginTop: 0 },
+          tabBarStyle: { backgroundColor: 'black', height: 90, borderTopWidth:0 },
           title: 'Search',
           tabBarIcon: ({ color }) => <Ionicons name="search" color={color} size={24} />,
         }}
@@ -108,7 +108,7 @@ function BottomTabNavigator() {
         name="Downloads"
         component={ComingSoonScreen}
         options={{
-          tabBarStyle: { backgroundColor: 'black', height: 90, marginTop: 0 },
+          tabBarStyle: { backgroundColor: 'black', height: 90, borderTopWidth:0  },
           title: 'Downloads',
           tabBarIcon: ({ color }) => <AntDesign name="download" color={color} size={24} />,
         }}
