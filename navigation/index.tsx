@@ -9,13 +9,13 @@ import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
 import { ColorSchemeName, Pressable } from 'react-native';
-
+import { AntDesign, MaterialIcons, Ionicons } from '@expo/vector-icons';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
-import TabOneScreen from '../screens/TabOneScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
+import HomeScreen from '../screens/HomeScreen';
+import ComingSoonScreen from '../screens/ComingSoonScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 
@@ -58,16 +58,18 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="Home"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
       }}>
       <BottomTab.Screen
-        name="TabOne"
-        component={TabOneScreen}
-        options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        name="Home"
+        component={HomeScreen}
+        options={({ navigation }: RootTabScreenProps<'Home'>) => ({
+          title: 'Home',
+          headerShown: false,
+          tabBarStyle: { backgroundColor: 'black', height: 90, borderTopWidth:0 },
+          tabBarIcon: ({ color }) => <AntDesign name="home" color={color} size={24} />,
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate('Modal')}
@@ -85,23 +87,34 @@ function BottomTabNavigator() {
         })}
       />
       <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoScreen}
+        name="ComingSoon"
+        component={ComingSoonScreen}
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarStyle: { backgroundColor: 'black', height: 90, marginTop: 0 },
+          title: 'Coming Soon',
+          tabBarIcon: ({ color }) => <MaterialIcons name="video-library" color={color} size={24} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Search"
+        component={ComingSoonScreen}
+        options={{
+          tabBarStyle: { backgroundColor: 'black', height: 90, marginTop: 0 },
+          title: 'Search',
+          tabBarIcon: ({ color }) => <Ionicons name="search" color={color} size={24} />,
+        }}
+      />
+      <BottomTab.Screen
+        name="Downloads"
+        component={ComingSoonScreen}
+        options={{
+          tabBarStyle: { backgroundColor: 'black', height: 90, marginTop: 0 },
+          title: 'Downloads',
+          tabBarIcon: ({ color }) => <AntDesign name="download" color={color} size={24} />,
         }}
       />
     </BottomTab.Navigator>
   );
 }
 
-/**
- * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
- */
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
-}
+
