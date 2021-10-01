@@ -18,11 +18,12 @@ const linking: LinkingOptions<RootStackParamList> = {
           Home: {
             screens: {
               HomeScreen: 'one',
+              MovieDetailScreen : 'two'
             },
           },
           ComingSoon: {
             screens: {
-              comingSoonScreen: 'two',
+              comingSoonScreen: 'zero',
             },
           },
         },
