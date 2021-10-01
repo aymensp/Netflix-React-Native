@@ -19,6 +19,7 @@ import ComingSoonScreen from '../screens/ComingSoonScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import { Avatar, Icon } from 'react-native-elements';
+import MovieDetailScreen from '../screens/MovieDetailScreen';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -100,7 +101,7 @@ function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name="ComingSoon"
-        component={ComingSoonScreen}
+        component={MovieDetailScreen}
         options={{
           tabBarStyle: { backgroundColor: 'black', height: 90, borderTopWidth: 0 },
           title: 'Coming Soon',

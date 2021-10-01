@@ -1,10 +1,8 @@
-import { AntDesign, Ionicons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 import * as React from 'react';
-import { FlatList, Image, ScrollView, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
+import { FlatList, Image, ScrollView, StyleSheet, ImageBackground } from 'react-native';
 import { Button } from 'react-native-elements'
-import { SafeAreaView } from 'react-native-safe-area-context';
 import categories from '../assets/data/categories'
-import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 
@@ -19,19 +17,19 @@ export default function HomeScreen({ navigation }: RootTabScreenProps<'Home'>) {
       >
         <View >
           <ImageBackground
-          resizeMode='cover'
-          imageStyle={{width:"100%" , height:'100%' , overflow:'hidden'}} 
-          source={{
-            uri: 'https://images.ctfassets.net/4cd45et68cgf/RcGuekGhRkHuzYRKu9jTr/b306b8c0e0cddbac04bce6ddb41f2c71/EN-US_SQdGame_Teaser_Coffin_Vertical_27x40_RGB_PRE.jpg'
-          }}
+            resizeMode='cover'
+            imageStyle={{ width: "100%", height: '100%', overflow: 'hidden' }}
+            source={{
+              uri: 'https://images.ctfassets.net/4cd45et68cgf/RcGuekGhRkHuzYRKu9jTr/b306b8c0e0cddbac04bce6ddb41f2c71/EN-US_SQdGame_Teaser_Coffin_Vertical_27x40_RGB_PRE.jpg'
+            }}
             style={styles.backroundImage}
           >
-            <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', backgroundColor: 'transparent' , marginBottom:10}}>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', backgroundColor: 'transparent', marginBottom: 10 }}>
               <Button icon={<Ionicons name='add' size={25} color='white' />}
-              title='Add'
-              iconPosition='top'
-              titleStyle={{fontWeight:"600" ,fontSize:15 , marginTop:-3}}
-              buttonStyle={{backgroundColor:'transparent'}}
+                title='Add'
+                iconPosition='top'
+                titleStyle={{ fontWeight: "600", fontSize: 15, marginTop: -3 }}
+                buttonStyle={{ backgroundColor: 'transparent' }}
               />
 
               <Button
@@ -41,10 +39,10 @@ export default function HomeScreen({ navigation }: RootTabScreenProps<'Home'>) {
                 buttonStyle={styles.button}
               />
               <Button icon={<Ionicons name='information-circle-outline' size={25} color='white' />}
-              title='Info'
-              iconPosition='top'
-              titleStyle={{fontWeight:"600" ,fontSize:15 , marginTop:-3}}
-              buttonStyle={{backgroundColor:'transparent'}}
+                title='Info'
+                iconPosition='top'
+                titleStyle={{ fontWeight: "600", fontSize: 15, marginTop: -3 }}
+                buttonStyle={{ backgroundColor: 'transparent' }}
               />
             </View>
           </ImageBackground>
@@ -52,10 +50,10 @@ export default function HomeScreen({ navigation }: RootTabScreenProps<'Home'>) {
 
         </View>
         {categories.items.map((itemm, i) => (
-          < >
+          <View key={i}>
 
             <Text
-              key={i}
+
               style={styles.title}>{itemm.title}</Text>
             <FlatList
               key={itemm.id}
@@ -74,7 +72,7 @@ export default function HomeScreen({ navigation }: RootTabScreenProps<'Home'>) {
               )}
             >
             </FlatList>
-          </>
+          </View>
         ))
         }
       </ScrollView>
@@ -102,11 +100,10 @@ const styles = StyleSheet.create({
     fontSize: 17,
     marginLeft: 10,
     lineHeight: 25
-
   },
   backroundImage: {
     height: 530,
-    justifyContent: "flex-end"
+    justifyContent: "flex-end",
   },
   button: {
     backgroundColor: 'white',
