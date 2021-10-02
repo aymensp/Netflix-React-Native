@@ -3,6 +3,7 @@ import React from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native'
 import { Button } from 'react-native-elements'
 import movie from '../assets/data/movie'
+import EpisodItem from '../components/EpisodItem'
 
 const MovieDetailScreen = () => {
     return (
@@ -60,9 +61,10 @@ const MovieDetailScreen = () => {
                     />
                 </View>
                 <View style={{ width: "15%", backgroundColor: 'red', height: 5 }} />
+                <EpisodItem/>
             </View>
-
-
+            
+           
         </View>
     )
 }
