@@ -1,11 +1,15 @@
 import { AntDesign, Feather, FontAwesome, Ionicons } from '@expo/vector-icons'
-import React from 'react'
-import { FlatList, Image, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { Picker } from '@react-native-picker/picker'
+import React, { useState } from 'react'
+import { FlatList, Image, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native'
 import { Button } from 'react-native-elements'
 import movie from '../assets/data/movie'
 import EpisodItem from '../components/EpisodItem'
+import ModalPicker from 'react-native-modal-picker'
 
 const MovieDetailScreen = () => {
+
+    const [selectedSeason, setSelectedSeson] = useState(1)
     return (
         <View>
             <Image
@@ -70,6 +74,18 @@ const MovieDetailScreen = () => {
                             />
                         </View>
                         <View style={{ width: "15%", backgroundColor: 'red', height: 5 }} />
+                        <ModalPicker
+                            data={data}
+                            initValue="Select something yummy!"
+                            onChange={(value) => setSelectedSeson(value)}>
+
+                            <TextInput
+                                style={{ borderWidth: 1, borderColor: '#ccc', padding: 10, height: 30 }}
+                                editable={false}
+                                placeholder="Select something yummy!"
+                                value={selectedSeason} />
+
+                        </ModalPicker>
 
 
 
